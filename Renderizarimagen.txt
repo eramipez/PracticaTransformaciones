@@ -1,0 +1,324 @@
+from google.colab import files
+
+uploaded = files.upload()
+import numpy as np
+import matplotlib.pyplot as plt
+from PIL import Image
+import copy
+
+img = Image.open("gato1.jpg")
+img.show()
+
+
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+from PIL import Image
+import copy
+import cv2
+import numpy as np
+from google.colab.patches import cv2_imshow
+
+img.show()
+imagen_array = np.array(img)
+
+R = imagen_array[:,:,0].flatten()
+G = imagen_array[:,:,1].flatten()
+B = imagen_array[:,:,2].flatten()
+save_red=[]
+save_green=[]
+save_blue=[]
+for numero in R:
+        save_red.append(numero)
+for numero in G:
+        save_green.append(numero)
+for numero in B:
+        save_blue.append(numero)
+
+
+def mostrar_menu(nombre, opciones):
+    print(f'# {nombre}. Seleccione una opción:')
+    for clave in sorted(opciones):
+        print(f' {clave}) {opciones[clave][0]}')
+
+
+def leer_opcion(opciones):
+    while (a := input('Opción: ')) not in opciones:
+        print('Opción incorrecta, vuelva a intentarlo.')
+    return a
+
+
+def ejecutar_opcion(opcion, opciones):
+    opciones[opcion][1]()
+
+
+def generar_menu(nombre, opciones, opcion_salida):
+    opcion = None
+    while opcion != opcion_salida:
+        mostrar_menu(nombre, opciones)
+        opcion = leer_opcion(opciones)
+        ejecutar_opcion(opcion, opciones)
+        print()
+
+
+def menu_principal():
+    opciones = {
+        '1': ('Suma', Suma),
+        '2': ('Resta ', Resta),
+        '3': ('Multiplicacion', Multiplicacion),
+        '4': ('Division', Division),
+        '5': ('Gamma', Gamma),
+        '6': ('Inversa', Inversa),
+        '7': ('Ecualizacion', Ecualizacion),
+        '8':('Salir', Salir),
+    }
+
+    generar_menu('Menú principal', opciones, '8')
+
+
+#suma
+
+def send_value():
+
+  print()
+def Suma():
+    val_suma=[]
+    j=0
+    iteracion=[]
+    print('Suma')
+    a=int(input("Digitaliza el numero"))
+    
+    print("valor de tu numero",a)
+
+    for i in save_red:
+      sum=0
+      sum=i+a
+      if (i >0 and i  <256):
+        val_suma.append(sum)
+      else:
+        val_suma.append(i)
+      j=j+1
+      iteracion.append(j) 
+    plt.bar(iteracion,val_suma, color ='red',width = 0.3)
+    plt.show()
+
+    for i in save_green:
+      sum=0
+      sum=i+a
+      if (i >0 and i  <256):
+        val_suma.append(sum)
+      else:
+        val_suma.append(i)
+      j=j+1
+      iteracion.append(j)
+    plt.bar(iteracion,val_suma, color ='green',width = 0.3)
+    plt.show()
+
+    for i in save_blue:
+      sum=0
+      sum=i+a
+      if (i >0 and i  <256):
+        val_suma.append(sum)
+      else:
+        val_suma.append(i)
+      j=j+1
+      iteracion.append(j)
+    plt.bar(iteracion,val_suma, color ='blue',width = 0.3)
+    plt.show()
+
+def Resta():
+    val_suma=[]
+    j=0
+    iteracion=[]
+    print('Suma')
+    a=int(input("Digitaliza el numero"))
+    
+    print("valor de tu numero",a)
+
+    for i in save_red:
+      sum=0
+      sum=i-a
+      if (i >0 and i  <256):
+        val_suma.append(sum)
+      else:
+        val_suma.append(i)
+      j=j+1
+      iteracion.append(j) 
+    plt.bar(iteracion,val_suma, color ='red',width = 0.3)
+    plt.show()
+
+    for i in save_green:
+      sum=0
+      sum=i-a
+      if (i >0 and i  <256):
+        val_suma.append(sum)
+      else:
+        val_suma.append(i)
+      j=j+1
+      iteracion.append(j)
+    plt.bar(iteracion,val_suma, color ='green',width = 0.3)
+    plt.show()
+
+    for i in save_blue:
+      sum=0
+      sum=i-a
+      if (i >0 and i  <256):
+        val_suma.append(sum)
+      else:
+        val_suma.append(i)
+      j=j+1
+      iteracion.append(j)
+    plt.bar(iteracion,val_suma, color ='blue',width = 0.3)
+    plt.show()
+
+def Multiplicacion():
+    val_suma=[]
+    j=0
+    iteracion=[]
+    print('Suma')
+    a=int(input("Digitaliza el numero"))
+    
+    print("valor de tu numero",a)
+
+    for i in save_red:
+      sum=0
+      sum=i*a
+      if (i >0 and i  <256):
+        val_suma.append(sum)
+      else:
+        val_suma.append(i)
+      j=j+1
+      iteracion.append(j) 
+    plt.bar(iteracion,val_suma, color ='red',width = 0.3)
+    plt.show()
+
+    for i in save_green:
+      sum=0
+      sum=i*a
+      if (i >0 and i  <256):
+        val_suma.append(sum)
+      else:
+        val_suma.append(i)
+      j=j+1
+      iteracion.append(j)
+    plt.bar(iteracion,val_suma, color ='green',width = 0.3)
+    plt.show()
+
+    for i in save_blue:
+      sum=0
+      sum=i*a
+      if (i >0 and i  <256):
+        val_suma.append(sum)
+      else:
+        val_suma.append(i)
+      j=j+1
+      iteracion.append(j)
+    plt.bar(iteracion,val_suma, color ='blue',width = 0.3)
+    plt.show()
+
+
+def Division():
+    val_suma=[]
+    j=0
+    iteracion=[]
+    print('Suma')
+    a=int(input("Digitaliza el numero"))
+    
+    print("valor de tu numero",a)
+
+    for i in save_red:
+      sum=0
+      sum=i/a
+      if (i >0 and i  <256):
+        val_suma.append(sum)
+      else:
+        val_suma.append(i)
+      j=j+1
+      iteracion.append(j) 
+    plt.bar(iteracion,val_suma, color ='red',width = 0.3)
+    plt.show()
+
+    for i in save_green:
+      sum=0
+      sum=i/a
+      if (i >0 and i  <256):
+        val_suma.append(sum)
+      else:
+        val_suma.append(i)
+      j=j+1
+      iteracion.append(j)
+    plt.bar(iteracion,val_suma, color ='green',width = 0.3)
+    plt.show()
+
+    for i in save_blue:
+      sum=0
+      sum=i/a
+      if (i >0 and i  <256):
+        val_suma.append(sum)
+      else:
+        val_suma.append(i)
+      j=j+1
+      iteracion.append(j)
+    plt.bar(iteracion,val_suma, color ='blue',width = 0.3)
+    plt.show()
+
+
+def Gamma():
+    print('Gamma')
+
+    import cv2
+    import numpy as np
+    from matplotlib import pyplot as plt
+
+
+    img = cv2.imread('gato1.jpg')
+
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    gamma = 1.5
+    gray_gamma = np.power(gray/255.0, gamma)
+    gray_gamma = np.uint8(gray_gamma*255)
+
+    plt.subplot(121), plt.imshow(gray, cmap='gray')
+    plt.title('Imagen original'), plt.xticks([]), plt.yticks([])
+    plt.subplot(122), plt.imshow(gray_gamma, cmap='gray')
+    plt.title('Imagen con corrección gamma'), plt.xticks([]), plt.yticks([])
+    plt.show()
+
+def Inversa():
+    print('Inversa')
+    from google.colab.patches import cv2_imshow
+    import cv2
+    imge = cv2.imread("gato1.jpg")
+
+    # Transformación lineal
+    alpha = 1.5   
+    beta = 50     
+    transformed = cv2.convertScaleAbs(imge, alpha=alpha, beta=beta)
+
+    cv2_imshow(imge)
+    cv2_imshow(transformed)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+def Ecualizacion():
+    print('Ecualizacion')
+    import cv2
+    import numpy as np
+    from matplotlib import pyplot as plt
+
+    img = cv2.imread('gato1.jpg', 0)
+
+    eq = cv2.equalizeHist(img)
+
+    plt.subplot(121), plt.imshow(img, cmap='gray')
+    plt.title('Imagen original'), plt.xticks([]), plt.yticks([])
+    plt.subplot(122), plt.imshow(eq, cmap='gray')
+    plt.title('Imagen ecualizada'), plt.xticks([]), plt.yticks([])
+    plt.show()
+
+def Salir():
+    print('Saliendo')
+
+
+
+menu_principal()
